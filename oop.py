@@ -67,4 +67,34 @@ print(move(car))
 print(move(bike))
 
 
+from abc import abstractmethod, ABC
 
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        pi = 3.14
+        return pi * self.radius ** 2
+
+
+rect = Rectangle(10, 5)
+circle = Circle(7)
+
+print(rect.area())
+print(circle.area())
